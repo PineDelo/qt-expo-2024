@@ -28,6 +28,7 @@ function Home() {
     spectrogram: "",
   });
   const [pageIndex, setPageIndex] = useState<number>(0);
+  const [isPrev, setIsPrev] = useState<boolean>(false);
   const [rankerList, setRankerList] = useState<any>([]);
   const [rankerOption, setRankerOption] = useState<string>("f");
   const [callLoading, setCallLoading] = useState<boolean>(false);
@@ -36,8 +37,22 @@ function Home() {
   const [isModal, setIsModal] = useState<boolean>(false);
   // Refs
   const mainRef = useRef<any>(null);
+  const containerItemRef = useRef<any>(null);
 
   useEffect(() => {}, []);
+
+  const navigation = (idx: number) => {
+    if (idx > pageIndex) {
+      setPageIndex(idx);
+      setIsPrev(false);
+    } else {
+      setPageIndex(idx);
+      setIsPrev(true);
+    }
+    setTimeout(() => {
+      containerItemRef.current.style.setProperty("display", "none");
+    }, 1000);
+  };
 
   const call = () => {
     setCallLoading(true);
@@ -145,6 +160,7 @@ function Home() {
     setIsModal(!isModal);
   };
 
+  console.log(containerItemRef.current.className);
   return (
     <main className={Styles.main} ref={mainRef}>
       <Header className={Styles.header}>
@@ -179,12 +195,14 @@ function Home() {
       <Flex className={Styles.container} justify="center">
         <div className={Styles.background} />
         <div
-          className={`${Styles.container_item} ${pageIndex === 0 ? Styles.active : Styles.inactive}`}
+          className={`${Styles.container_item} ${pageIndex === 0 ? (isPrev ? Styles.prev_active : Styles.prev_active) : Styles.goto_active}`}
+          ref={containerItemRef}
         >
           <Intro user={user} setUser={setUser} setPageIndex={setPageIndex} />
         </div>
         <div
-          className={`${Styles.container_item} ${pageIndex === 1 ? Styles.active : Styles.inactive}`}
+          className={`${Styles.container_item} ${pageIndex === 1 ? `${style}_active` : `${style}_inactive`}`}
+          ref={containerItemRef}
         >
           <PhoneNumber
             setPageIndex={setPageIndex}
@@ -195,7 +213,8 @@ function Home() {
           />
         </div>
         <div
-          className={`${Styles.container_item} ${pageIndex === 2 ? Styles.active : Styles.inactive}`}
+          className={`${Styles.container_item} ${pageIndex === 2 ? Styles.goto_active : Styles.goto_inactive}`}
+          ref={containerItemRef}
         >
           <Analyzing
             setPageIndex={setPageIndex}
@@ -203,7 +222,8 @@ function Home() {
           />
         </div>
         <div
-          className={`${Styles.container_item} ${pageIndex === 3 ? Styles.active : Styles.inactive}`}
+          className={`${Styles.container_item} ${pageIndex === 3 ? Styles.goto_active : Styles.goto_inactive}`}
+          ref={containerItemRef}
         >
           <Result
             setPageIndex={setPageIndex}
@@ -216,7 +236,8 @@ function Home() {
           />
         </div>
         <div
-          className={`${Styles.container_item} ${pageIndex === 4 ? Styles.active : Styles.inactive}`}
+          className={`${Styles.container_item} ${pageIndex === 4 ? Styles.goto_active : Styles.goto_inactive}`}
+          ref={containerItemRef}
         >
           <Ranking
             setPageIndex={setPageIndex}

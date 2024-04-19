@@ -17,6 +17,7 @@ const Result: React.FC<ResultProps> = ({
   reset,
   rankLoading,
   func,
+  setPageIndex,
 }) => {
   return (
     <Flex
@@ -27,7 +28,9 @@ const Result: React.FC<ResultProps> = ({
     >
       <Flex className={Styles.title} justify="center" align="center">
         <MatchTxt />
-        <span className={Styles.match_rate}>{user.lastSimilarity * 100}%</span>
+        <span className={Styles.match_rate}>
+          {String(user.lastSimilarity * 100)}%
+        </span>
       </Flex>
       <p className={Styles.count_content}>
         남은 참여 횟수는 <span className={Styles.count}>{user.count}회</span>{" "}
@@ -64,7 +67,7 @@ const Result: React.FC<ResultProps> = ({
         <Button
           className={Styles.btns}
           loading={rankLoading}
-          onClick={() => func?.()}
+          onClick={() => setPageIndex(4)}
         >
           랭킹 확인하기
         </Button>
