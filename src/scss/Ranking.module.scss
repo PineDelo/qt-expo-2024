@@ -1,0 +1,94 @@
+.loading_bar {
+  margin-top: 20rem;
+}
+
+.ranking_wrapper {
+  margin-top: 7.5rem;
+
+  .title {
+    .match_rate {
+      margin-left: 1.6rem;
+      font-size: 8rem;
+      font-weight: 600;
+      color: #0078fe;
+    }
+  }
+
+  .ranking_desc {
+    margin-top: 3rem;
+    width: 55.6rem;
+    height: 9rem;
+  }
+
+  .button_group {
+    margin-top: 7rem;
+
+    .button_option {
+      width: 16rem;
+      height: 4rem;
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+  }
+
+  .ranker_list {
+    position: relative;
+    margin-top: 3rem;
+    margin-left: 2.5rem;
+
+    .bookmark {
+      position: absolute;
+      left: -6rem;
+      width: 10rem;
+      height: 10rem;
+    }
+
+    .ranker {
+      padding: 0 2rem;
+      width: 50rem;
+      height: 7.2rem;
+      border: 1px solid #d9d9d9;
+      border-radius: 0.4rem;
+      background-color: #ffffff;
+
+      //   랭킹 순위 번호
+      .rank_num_wrapper {
+        margin-right: 1.6rem;
+        width: 4rem;
+        height: 4rem;
+
+        .rank_num {
+          font-size: 3rem;
+          color: #d9d9d9;
+        }
+      }
+      //   전화번호, 날짜
+      .phone {
+        font-size: 1.6rem;
+        font-weight: 500;
+      }
+      .date {
+        margin-top: 0.4rem;
+        font-size: 1.4rem;
+        color: #a2a9b0;
+      }
+      //   일치율
+      .rate {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0078fe;
+      }
+    }
+  }
+
+  .bottom_button_group {
+    margin-top: 7rem;
+
+    .buttons {
+      width: 50rem;
+      height: 4.8rem;
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+body {
+  background-color: $body-bg-light;
+}
+
+.#{$prefix}-layout-header {
+  background-color: $header-bg-light;
+}
+
+.#{$prefix}-layout-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark {
+  background-color: $body-bg-dark;
+  .#{$prefix}-layout-header {
+    background-color: $header-bg-dark;
+  }
+  .#{$prefix}-layout-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}

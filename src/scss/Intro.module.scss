@@ -1,0 +1,51 @@
+.intro_wrapper {
+  .modal_btn_wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+
+    .modal_btn {
+      width: 13rem;
+      height: 4rem;
+    }
+  }
+  .title_img {
+    margin-top: 10rem;
+  }
+
+  .flex_character {
+    margin-top: 10rem;
+
+    .character_wrapper {
+      cursor: pointer;
+
+      :hover {
+        border: 2px solid #0078fe;
+        border-radius: 5px;
+      }
+    }
+
+    .character_selected {
+      cursor: pointer;
+      border: 2px solid #0078fe;
+      border-radius: 5px;
+    }
+  }
+
+  .flex_agreement {
+    margin-top: 5rem;
+    width: 50rem;
+    font-size: 1.4rem;
+
+    .show_more {
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+
+  .participate_btn {
+    margin-top: 2rem;
+    width: 50rem;
+    height: 4.8rem;
+  }
+}
