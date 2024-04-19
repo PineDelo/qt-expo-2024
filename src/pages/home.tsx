@@ -47,7 +47,7 @@ function Home() {
       setIsPrev(false);
     } else {
       setPageIndex(idx);
-      setIsPrev(true);
+      setIsPrev(false);
     }
     setTimeout(() => {
       containerItemRef.current.style.setProperty("display", "none");
@@ -160,7 +160,7 @@ function Home() {
     setIsModal(!isModal);
   };
 
-  console.log(containerItemRef.current.className);
+  // console.log(containerItemRef.current.className);
   return (
     <main className={Styles.main} ref={mainRef}>
       <Header className={Styles.header}>
@@ -195,13 +195,13 @@ function Home() {
       <Flex className={Styles.container} justify="center">
         <div className={Styles.background} />
         <div
-          className={`${Styles.container_item} ${pageIndex === 0 ? (isPrev ? Styles.prev_active : Styles.prev_active) : Styles.goto_active}`}
+          className={`${Styles.container_item} ${pageIndex === 0 ? Styles.goto_active : Styles.goto_inactive}`}
           ref={containerItemRef}
         >
           <Intro user={user} setUser={setUser} setPageIndex={setPageIndex} />
         </div>
         <div
-          className={`${Styles.container_item} ${pageIndex === 1 ? `${style}_active` : `${style}_inactive`}`}
+          className={`${Styles.container_item} ${pageIndex === 1 ? Styles.goto_active : Styles.goto_inactive}`}
           ref={containerItemRef}
         >
           <PhoneNumber
